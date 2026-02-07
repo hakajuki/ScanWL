@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- RollingFile appender for wallets with balance > 0 -->
+        <RollingFile name="WalletsFile"
+                     fileName="logs/wallets_with_balance.log"
+                     filePattern="logs/wallets_with_balance-%d{yyyy-MM-dd}-%i.log"
+                     createOnDemand="true">
+            <!-- Only accept logs with WALLET_FOUND marker -->
+            <MarkerFilter marker="WALLET_FOUND" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <!-- Logger for WalletClient that writes to both Console and WalletsFile -->
+        <Logger name="com.hktools.WalletClient" level="WARN" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="WalletsFile"/>
+        </Logger>
+
+        <Root level="WARN">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
