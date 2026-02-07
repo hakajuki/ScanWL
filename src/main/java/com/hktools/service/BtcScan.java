@@ -3,6 +3,7 @@ package com.hktools.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.hktools.config.ConfigLoader;
 import com.hktools.config.HttpClientConfig;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -13,8 +14,11 @@ public class BtcScan {
     private final Gson gson = new GsonBuilder().create();
 
     public int getBalance(String address) {
+        // Load URL from configuration and replace {address} placeholder
+        String url = ConfigLoader.getInstance().getBtcScanUrl().replace("{address}", address);
+
         Request request = new Request.Builder()
-                .url(String.format("https://btcscan.org/api/address/%s", address))
+                .url(url)
                 .build();
 
         try (Response response = HttpClientConfig.executeRequest(request)) {

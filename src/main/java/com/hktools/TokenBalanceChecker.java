@@ -31,8 +31,12 @@ public class TokenBalanceChecker {
 
 //    private static final String LLAMARPC_URL = "https://eth-mainnet.rpcfast.com?api_key=xbhWBI1Wkguk8SNMu1bvvLurPGLXmgwYeC4S6g2H7WdwFigZSmPWVZRxrskEQwIf";
 //    private static final String LLAMARPC_URL = "https://eth-mainnet.g.alchemy.com/v2/eRP_IY_87zYv3VM7OK1pQUaWqaFLODOb";
-    private static final String ETH_TW = "https://ethereum.twnodes.com/naas/session/OWFjNzJmMjItYmQ3MC00Y2ZkLWJhODMtODZlMjNlYmQ4Mzdj";
-    private static final String BSC_TW = "https://bsc.twnodes.com/naas/session/OWFjNzJmMjItYmQ3MC00Y2ZkLWJhODMtODZlMjNlYmQ4Mzdj";
+    private static final String ETH_TW = "https://rpc.sentio.xyz/mainnet";
+        //"https://ethereum-rpc.publicnode.com";
+        //"https://eth-mainnet.public.blastapi.io";
+    //https://ethereum.twnodes.com/naas/session/OWFjNzJmMjItYmQ3MC00Y2ZkLWJhODMtODZlMjNlYmQ4Mzdj";
+//    private static final String BSC_TW = "https://bsc.twnodes.com/naas/session/OWFjNzJmMjItYmQ3MC00Y2ZkLWJhODMtODZlMjNlYmQ4Mzdj";
+    private static final String URL = ETH_TW;
     private final Web3j web3j;
 
     // Top 10 ERC20 tokens phổ biến (contract addresses)
@@ -53,7 +57,7 @@ public class TokenBalanceChecker {
 
     public TokenBalanceChecker() {
         // Use shared OkHttp client for Web3j
-        this.web3j = Web3j.build(new HttpService(BSC_TW, HttpClientConfig.getClient()));
+        this.web3j = Web3j.build(new HttpService(URL, HttpClientConfig.getClient()));
     }
 
     /**
@@ -174,11 +178,10 @@ public class TokenBalanceChecker {
     }
 
     public static void main(String[] args) {
-//        String address = "0xa14d5da3c6bf2d9304fe6d4bc6942395b4de048b";  // Vitalik
-        String address = "0xf8de5e61322302b2c6e0a525cc842f10332811bf";
+        String address = "0x2ab35a9e0eb211eb91baaf4e8626d97165ce8a5c";  // Vitalik
+//        String address = "0xf8de5e61322302b2c6e0a525cc842f10332811bf";
 
         System.out.println("💰 TOP SỐ DỰ TOKENS (Từ Lớn Đến Bé)");
-        System.out.println("🌐 RPC: https://eth.llamarpc.com");
         System.out.println("📍 Address: " + address);
         System.out.println("═" + "═".repeat(60) + "═\n");
 

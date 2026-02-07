@@ -3,6 +3,7 @@ package com.hktools.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.hktools.config.ConfigLoader;
 import com.hktools.config.HttpClientConfig;
 import com.hktools.parser.Base58;
 import okhttp3.MediaType;
@@ -13,7 +14,6 @@ import okhttp3.Response;
 import java.io.IOException;
 
 public class Tronscan {
-    public static String MAIN_NET_API = "https://tron.twnodes.com/naas/session/OWFjNzJmMjItYmQ3MC00Y2ZkLWJhODMtODZlMjNlYmQ4Mzdj/wallet/getaccount";
     private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     private final Gson gson = new GsonBuilder().create();
 
@@ -25,9 +25,12 @@ public class Tronscan {
         payload.addProperty("address", hexAddress);
         String requestBody = gson.toJson(payload);
 
+        // Load URL from configuration
+        String url = ConfigLoader.getInstance().getTronscanUrl();
+
         // Build HTTP POST request
         Request request = new Request.Builder()
-                .url(MAIN_NET_API)
+                .url(url)
                 .post(RequestBody.create(requestBody, JSON))
                 .build();
 

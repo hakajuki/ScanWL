@@ -1,6 +1,7 @@
 package com.hktools.service;
 
 import com.hktools.Main;
+import com.hktools.config.ConfigLoader;
 import com.hktools.config.HttpClientConfig;
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -20,8 +21,9 @@ public class Telegram {
         return _instance;
     }
 
-    public String BOT_TOKEN = "6116978471:AAFrxX4j3ZsJ-mzN1dS47bvwh7F53nmelDY";
-    public String GROUP_ID = "-1003835357560";
+    // Load from configuration file
+    public String BOT_TOKEN = ConfigLoader.getInstance().getTelegramBotToken();
+    public String GROUP_ID = ConfigLoader.getInstance().getTelegramGroupId();
 
     public void sendMessage(String message) {
         String telegramBotToken = BOT_TOKEN;
