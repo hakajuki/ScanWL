@@ -81,7 +81,7 @@ public class EthereumWeb3 {
                 String errorMsg = e.getMessage().toLowerCase();
 
                 // Check for 403 error or other HTTP errors
-                if (errorMsg.contains("403") || errorMsg.contains("forbidden") ||
+                if (errorMsg.contains("401") || errorMsg.contains("403") || errorMsg.contains("forbidden") ||
                     errorMsg.contains("429") || errorMsg.contains("rate limit")) {
 
                     System.out.println("[" + network + "] HTTP Error detected (attempt " + (attempt + 1) + "/" + maxRetries + "): " + e.getMessage());

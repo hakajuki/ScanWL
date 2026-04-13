@@ -21,7 +21,13 @@ public class Main {
 
     public static void main(String[] args) {
         // Number of clients to start (from args[0] or default 1)
-        int n = 10;
+        int n = 1;
+        if(args == null) {
+            logger.warn("No arguments provided, defaulting to 10 client");
+            n = 10;
+        } else if (args.length > 1) {
+            logger.warn("Multiple arguments provided, only the first one will be used for number of clients");
+        }
         if (args != null && args.length > 0) {
             try {
                 n = Integer.parseInt(args[0]);
