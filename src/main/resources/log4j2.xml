@@ -22,7 +22,7 @@
     </Appenders>
     <Loggers>
         <!-- Logger for WalletClient that writes to both Console and WalletsFile -->
-        <Logger name="com.hktools.WalletClient" level="WARN" additivity="false">
+        <Logger name="com.hktools.WalletClient" level="DEBUG" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="WalletsFile"/>
         </Logger>

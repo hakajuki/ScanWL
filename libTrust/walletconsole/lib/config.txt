@@ -1,0 +1,11 @@
+#PlanCoinScan Configuration File
+# Edit these values as needed
+# For multiple URLs, use comma-separated values
+#Sun Feb 07 00:00:00 ICT 2026
+btcscan.url=https\://btcscan.org/api/address/{address}
+tronscan.url=https\://tron.twnodes.com/naas/session/OWFjNzJmMjItYmQ3MC00Y2ZkLWJhODMtODZlMjNlYmQ4Mzdj/wallet/getaccount
+ethereum.urls=https\://ethereum.twnodes.com/naas/session/OWFjNzJmMjItYmQ3MC00Y2ZkLWJhODMtODZlMjNlYmQ4Mzdj,https\://mainnet.infura.io/v3/b6bf7d3508c941499b10025c0776eaf8,https://rpc.sentio.xyz/mainnet,https://ethereum-rpc.publicnode.com,https://eth-mainnet.public.blastapi.io
+bsc.urls=https\://bsc.twnodes.com/naas/session/OWFjNzJmMjItYmQ3MC00Y2ZkLWJhODMtODZlMjNlYmQ4Mzdj,https\://bsc-mainnet.infura.io/v3/b6bf7d3508c941499b10025c0776eaf8,https://public-bsc-mainnet.fastnode.io
+telegram.bot_token=6116978471\:AAFrxX4j3ZsJ-mzN1dS47bvwh7F53nmelDY
+telegram.group_id=-1003835357560
+
