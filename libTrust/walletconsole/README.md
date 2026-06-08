@@ -18,3 +18,8 @@ Further details: [developer.trustwallet.com](https://developer.trustwallet.com)/
     Set active coin to: bitcoin
     > addrDefault
     Result:  bc1q2kecrqfvzj7l6phet956whxkvathsvsgn7twav
+
+
+./walletconsole/walletconsole 2 63000
+mode: 1 random
+      2 random 11 word

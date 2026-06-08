@@ -5,4 +5,6 @@
 
 #pragma once
 
-int StartSocketServer(int port);
+// walletMode: 1 = BIP39 via HDWallet CSPRNG (default)
+//             2 = BIP39 via wordlist file + checksum-fixed word 12
+int StartSocketServer(int port, int walletMode = 1);
